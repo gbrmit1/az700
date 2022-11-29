@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "coreservicesvnetname": {
-            "type" : "string",
+            "type" : "string"
         }
     },
     "functions": [],
