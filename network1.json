@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "coreservicesvnetname": {
+            "type": "string",
+            "value" : "CoreServicesVNET"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('coreservicesvnetname')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-11-01",
+            "location": "eastus",
+            "tags": {
+                "displayName": "[parameters('coreservicesvnetname')]"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.20.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "GatewaySubnet",
+                        "properties": {
+                            "addressPrefix": "10.20.0.0/27"
+                        }
+                    },
+                    {
+                        "name": "SharedServicesSubnet",
+                        "properties": {
+                            "addressPrefix": "10.20.10.0/24"
+                        }
+                    },
+                    {
+                        "name": "DatabaseSubnet",
+                        "properties": {
+                            "addressPrefix": "10.20.20.0/24"
+                        }
+                    },
+                    {
+                        "name": "PublicWebServiceSubnet",
+                        "properties": {
+                            "addressPrefix": "10.20.30.0/24"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}
