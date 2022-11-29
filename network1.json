@@ -3,7 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "coreservicesvnetname": {
-            "type" : "string"
+            "type" : "string",
+            "metadata": {
+                "description": "What is the name of your vnet"
+            }
         }
     },
     "functions": [],
