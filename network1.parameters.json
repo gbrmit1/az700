@@ -2,8 +2,38 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "coreservicesvnetname": {
+        "vnetname": {
             "value": "CoreServicesVNET"
+        },
+        "vnetprefix": {
+            "value": "10.20.0.0/16"
+        },
+        "vnetlocation": {
+            "value": "eastus"
+        },
+        "Subnet1name": {
+            "value": "GatewaySubnet"
+        },
+        "Subnet1ip": {
+            "value": "10.20.0.0/27"
+        },
+        "Subnet2name": {
+            "value": "SharedServicesSubnet"
+        },
+        "Subnet2ip": {
+            "value": "10.20.10.0/24"
+        },
+        "Subnet3name": {
+            "value": "DatabaseSubnet"
+        },
+        "Subnet3ip": {
+            "value": "10.20.20.0/24"
+        },
+        "Subnet4name": {
+            "value": "PublicWebServiceSubnet"
+        },
+        "Subnet4ip": {
+            "value": "10.20.30.0/24"
         }
     }
 }

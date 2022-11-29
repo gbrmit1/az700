@@ -2,53 +2,80 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "coreservicesvnetname": {
+        "vnetname": {
             "type" : "string",
-            "metadata": {
-                "description": "What is the name of your vnet"
-            }
+        },
+        "vnetprefix": {
+            "type" : "string",
+        },
+        "vnetlocation": {
+            "type": "string",
+        },
+        "subnet1name": {
+            "type" : "string",
+        },
+        "Subnet1ip": {
+            "type" : "string",
+        },
+        "subnet2name": {
+            "type" : "string",
+        },
+        "Subnet2ip": {
+            "type" : "string",
+        },
+        "subnet3name": {
+            "type" : "string",
+        },
+        "Subnet3ip": {
+            "type" : "string",
+        },
+        "subnet4name": {
+            "type" : "string",
+        },
+        "Subnet4ip": {
+            "type" : "string",
         }
     },
     "functions": [],
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('coreservicesvnetname')]",
+            "name": "[parameters('vnetname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
-            "location": "eastus",
+            "location": "[parameters('vnetlocation')]",
             "tags": {
-                "displayName": "[parameters('coreservicesvnetname')]"
+                "displayName": "[parameters('vnetname')]"
             },
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "10.20.0.0/16"
+                        "[parameters('vnetprefix')]"
                     ]
                 },
                 "subnets": [
                     {
-                        "name": "GatewaySubnet",
+                        "name": "[parameters('subnet1name')]",
                         "properties": {
-                            "addressPrefix": "10.20.0.0/27"
+                            "addressPrefix": "[parameters('Subnet1ip')]"
                         }
                     },
                     {
-                        "name": "SharedServicesSubnet",
+                        "name": "[parameters('subnet2name')]",
                         "properties": {
-                            "addressPrefix": "10.20.10.0/24"
+                            "addressPrefix": "[parameters('Subnet2ip')]"
                         }
                     },
                     {
-                        "name": "DatabaseSubnet",
+                        "name": "[parameters('subnet3name')]",
                         "properties": {
-                            "addressPrefix": "10.20.20.0/24"
+                            "addressPrefix": "[parameters('Subnet3ip')]"
                         }
                     },
                     {
-                        "name": "PublicWebServiceSubnet",
+                        "name": "[parameters('subnet4name')]",
                         "properties": {
-                            "addressPrefix": "10.20.30.0/24"
+                            "addressPrefix": "[parameters('Subnet4ip')]"
                         }
                     }
                 ]
