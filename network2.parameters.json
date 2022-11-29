@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetname": {
+            "value": "ManufacturingVnet"
+        },
+        "vnetprefix": {
+            "value": "10.30.0.0/16"
+        },
+        "vnetlocation": {
+            "value": "westeurope"
+        },
+        "Subnet1name": {
+            "value": "ManufacturingSystemSubnet"
+        },
+        "Subnet1ip": {
+            "value": "10.30.10.0/24"
+        },
+        "Subnet2name": {
+            "value": "SensorSubnet1"
+        },
+        "Subnet2ip": {
+            "value": "10.30.20.0/24"
+        },
+        "Subnet3name": {
+            "value": "SensorSubnet2"
+        },
+        "Subnet3ip": {
+            "value": "10.30.21.0/24"
+        },
+        "Subnet4name": {
+            "value": "SensorSubnet3"
+        },
+        "Subnet4ip": {
+            "value": "10.30.22.0/24"
+        }
+    }
+}
