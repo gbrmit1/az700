@@ -15,7 +15,7 @@
         {
             "name": "[parameters('dnsZone1')]",
             "type": "Microsoft.Network/privateDnsZones",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2020-06-01",
             "location": "global",
             "properties": {
                 "registrationEnabled": "bool",
