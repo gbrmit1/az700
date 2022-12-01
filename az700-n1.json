@@ -38,11 +38,5 @@
             }
         }
     ],
-    "outputs": {
-        "vnetname": {
-            "type": "string",
-            "value": "[reference('network1linkeddeployment'), parameters('vnetlocation')]"
-            //"value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetname'))]"
-        }
-    }
+    "outputs": {}
 }
