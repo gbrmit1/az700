@@ -17,7 +17,7 @@
                 },
                 "parametersLink": {
                     "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/network1.parameters.json"
-                    
+
                 }
             }
         },
@@ -41,7 +41,7 @@
     "outputs": {
         "vnetname": {
             "type": "string",
-            "value": "[reference('network1linkeddeployment', parameters('vnetlocation'))]"
+            "value": "[reference('network1linkeddeployment'), parameters('vnetlocation')]"
             //"value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetname'))]"
         }
     }
