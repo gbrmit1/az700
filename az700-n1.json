@@ -41,7 +41,7 @@
     "outputs": {
         "output1": {
             "type": "string",
-            "value": "[reference('network1linkeddeployment').resources.parameters('vnetname')]"
+            "value": "[reference('network1linkeddeployment').parameters('vnetname')]"
         }
     }
 }
