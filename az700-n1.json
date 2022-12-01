@@ -38,5 +38,10 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+        "output1": {
+            "type": "string",
+            "value": "[reference('network1linkeddeployment').resources.parameters('vnetname')]"
+        }
+    }
 }
