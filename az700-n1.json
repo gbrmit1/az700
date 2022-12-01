@@ -42,9 +42,10 @@
         }
     ],
     "outputs": {
-        "resourceID": {
+        "vnetname": {
             "type": "string",
-            "value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetname'))]"
+            "value": "[reference('network1linkeddeployment', parameters('vnetlocation'))]"
+            //"value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetname'))]"
         }
     }
 }
