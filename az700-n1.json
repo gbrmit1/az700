@@ -41,7 +41,12 @@
     "outputs": {
         "output1": {
             "type": "string",
-            "value": "[reference('network1linkeddeployment').parameters('vnetname')]"
+            "value": "[
+                reference(resourceId('Microsoft.Resources/deployments','network1linkeddeployment')).parameters('vnetname')
+            ]"
+            //"value": "[
+            //    reference('Microsoft.Resources/deployments/network1linkeddeployment').parameters('vnetname')
+            //    ]"
         }
     }
 }
