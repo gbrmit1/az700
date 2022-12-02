@@ -3,13 +3,20 @@
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "functions": [],
-    "variables": {},
+    "variables": {
+        "vnetnamevariable": {
+            "vnetnamevariable2121"
+        }
+    },
     "resources": [
         {
             "name": "network1linkeddeployment",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
             "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/network1.json",
@@ -26,6 +33,9 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
             "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/network1.json",
@@ -37,16 +47,12 @@
                 
             }
         }
+
     ],
     "outputs": {
-        "output1": {
-            "type": "string",
-            "value": "[
-                reference(resourceId('Microsoft.Resources/deployments','network1linkeddeployment')).parameters('vnetname')
-            ]"
-            //"value": "[
-            //    reference('Microsoft.Resources/deployments/network1linkeddeployment').parameters('vnetname')
-            //    ]"
+        "vnetname": {
+            "type": "object",
+            "value": "[reference(variables('vnetnamevariable'))]"
         }
     }
 }
