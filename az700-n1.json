@@ -51,22 +51,6 @@
                     "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/privatednszone1.parameters.json"
                 }
             }
-        },
-        {
-            "name": "vm1linkedDeployment1",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2021-04-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/master/Allfiles/Exercises/M01/azuredeploy.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parametersLink": {
-                    "uri": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/master/Allfiles/Exercises/M01/azuredeploy.parameters.json"
-
-                }
-            }
         }
     ],
     "outputs": {}
