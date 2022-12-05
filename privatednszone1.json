@@ -2,31 +2,66 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vnetname": {
-            "type" : "string"
+        "privateDnsZones_contoso_com_name": {
+            "defaultValue": "contoso.com",
+            "type": "String"
         },
-        "dnsZone1": {
-            "type": "string"
+        "virtualNetworks_CoreServicesVNET_externalid": {
+            "defaultValue": "/subscriptions/a7826b4d-0e55-4e8b-9b18-c53696348ed0/resourceGroups/RM-ARM-AZ700/providers/Microsoft.Network/virtualNetworks/CoreServicesVNET",
+            "type": "String"
         }
     },
-    "functions": [],
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('dnsZone1')]",
             "type": "Microsoft.Network/privateDnsZones",
-            "apiVersion": "2020-06-01",
-            "dependsOn" : [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetname'))]"
-            ],
+            "apiVersion": "2018-09-01",
+            "name": "[parameters('privateDnsZones_contoso_com_name')]",
             "location": "global",
             "properties": {
-                "registrationEnabled": "true",
-                "virtualNetwork": {
-                    "id": "[concat(resourceId ('Microsoft.Network/virtualNetworks', parameters('vnetname')))]"
-                    }
+                "maxNumberOfRecordSets": 25000,
+                "maxNumberOfVirtualNetworkLinks": 1000,
+                "maxNumberOfVirtualNetworkLinksWithRegistration": 100,
+                "numberOfRecordSets": 1,
+                "numberOfVirtualNetworkLinks": 1,
+                "numberOfVirtualNetworkLinksWithRegistration": 1,
+                "provisioningState": "Succeeded"
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateDnsZones/SOA",
+            "apiVersion": "2018-09-01",
+            "name": "[concat(parameters('privateDnsZones_contoso_com_name'), '/@')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_contoso_com_name'))]"
+            ],
+            "properties": {
+                "ttl": 3600,
+                "soaRecord": {
+                    "email": "azureprivatedns-host.microsoft.com",
+                    "expireTime": 2419200,
+                    "host": "azureprivatedns.net",
+                    "minimumTtl": 10,
+                    "refreshTime": 3600,
+                    "retryTime": 300,
+                    "serialNumber": 1
                 }
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+            "apiVersion": "2018-09-01",
+            "name": "[concat(parameters('privateDnsZones_contoso_com_name'), '/coreservicesvnetlink')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_contoso_com_name'))]"
+            ],
+            "properties": {
+                "registrationEnabled": true,
+                "virtualNetwork": {
+                    "id": "[parameters('virtualNetworks_CoreServicesVNET_externalid')]"
+                }
+            }
         }
-    ],
-    "outputs": {}
+    ]
 }

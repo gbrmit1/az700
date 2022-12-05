@@ -2,11 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "dnszone1": {
+        "privateDnsZones_contoso_com_name": {
             "value": "contoso.com"
         },
-        "vnetname": {
-            "value": "CoreServicesVNET"
+        "virtualNetworks_CoreServicesVNET_externalid": {
+            "value": "/subscriptions/a7826b4d-0e55-4e8b-9b18-c53696348ed0/resourceGroups/RM-ARM-AZ700/providers/Microsoft.Network/virtualNetworks/CoreServicesVNET"
         }
     }
 }

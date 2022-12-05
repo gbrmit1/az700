@@ -36,6 +36,21 @@
                 }
                 
             }
+        },
+        {
+            "name": "privatedns1linkedDeployment",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2021-04-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/privatednszone1.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parametersLink": {
+                    "uri": "https://raw.githubusercontent.com/gbrmit1/az700/main/privatednszone1.parameters.json"
+                }
+            }
         }
     ],
     "outputs": {}
