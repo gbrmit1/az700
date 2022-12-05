@@ -1,6 +1,6 @@
 $rg = 'RM-ARM-AZ700'
 
-New-AzResourceGroup -Name $rg -Location northeurope
+New-AzResourceGroup -Name $rg -Location eastus
 
 New-AzResourceGroupDeployment `
 -Name 'RM-ARM-AZ700-Resource-Group' `
