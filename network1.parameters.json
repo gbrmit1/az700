@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vnetname": {
-            "value": "CoreServicesVNET"
+            "value": "CoreServicesVnet"
         },
         "vnetprefix": {
             "value": "10.20.0.0/16"
