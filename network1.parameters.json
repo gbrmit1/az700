@@ -9,7 +9,7 @@
             "value": "10.20.0.0/16"
         },
         "vnetlocation": {
-            "value": "eastus"
+            "value": "northeurope"
         },
         "Subnet1name": {
             "value": "GatewaySubnet"
